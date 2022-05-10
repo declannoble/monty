@@ -15,14 +15,14 @@ void _push(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	newnode = malloc(sizeof(*newnode));
 	if (newnode == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	value = strtok(NULL, " \n\t\r");
