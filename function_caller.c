@@ -24,8 +24,8 @@ void function_caller(char *op_code, stack_t **stack, unsigned int line_number)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
-/*		{"pchar", _pchar},
-		{"pstr", _pstr},
+		{"pchar", _pchar},
+/*		{"pstr", _pstr},
 		{"rotl", _rotl},
 		{"rotr", _rotr},*/
 		{NULL, NULL}
