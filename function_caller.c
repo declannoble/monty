@@ -23,8 +23,8 @@ void function_caller(char *op_code, stack_t **stack, unsigned int line_number)
 		{"sub", _sub},
 		{"div", _div},
 		{"mul", _mul},
-/*		{"mod", _mod},
-		{"pchar", _pchar},
+		{"mod", _mod},
+/*		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
 		{"rotr", _rotr},*/
