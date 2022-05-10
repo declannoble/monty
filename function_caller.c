@@ -13,8 +13,8 @@ void function_caller(char *op_code, stack_t **stack, unsigned int line_number)
 {
 	unsigned int i = 0;
 	instruction_t fcode[] = {
-/*		{"push", _push},
-		{"pall", _pall},*/
+		{"push", _push},
+		{"pall", _pall},
 		{"pint", _pint},
 /*		{"pop", _pop},
 		{"swap", _swap},
