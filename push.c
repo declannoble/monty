@@ -25,14 +25,13 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
+
 	value = strtok(NULL, " \n\t\r");
 	number = atoi(value);
 	newnode->n = number;
 	newnode->prev = NULL;
 	newnode->next = *stack;
 	if (*stack != NULL)
-	{
 		(*stack)->prev = newnode;
-	}
 	*stack = newnode;
 }
