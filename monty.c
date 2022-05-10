@@ -9,12 +9,12 @@
 
 int main(int argc, char **argv)
 {
-	unsigned int line_number = 0, readflag = 0, i = 0, j = 0;
+	unsigned int line_number = 0, i = 0, j = 0;
 	size_t line_buf_size = 0;
 	ssize_t line_size;
-	char *newline = NULL;
-	char *token = NULL, *token2 = NULL, *token3 = NULL;
-	FILE *fp = fopen(argv[1], "r");
+	char *newline = NULL, *token = NULL;
+	FILE *fp = NULL;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 		exit (EXIT_FAILURE);
 	}
 
+	fp = fopen(argv[1], "r");
 	if (!fp)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -32,28 +33,12 @@ int main(int argc, char **argv)
 	while (line_size > 0)
 	{
 		line_number++;
-		printf("line[%d]: chars=%ld, buf size=%lu, contents: %s\n", line_number, line_size, line_buf_size, newline);
 		token = strtok(newline, " \n\r\t");
 		if (token != NULL)
-		{
-			token2 = strtok(NULL, " \n\r\t");
-			if (token2 != NULL )
-				token3 = strtok(NULL, " \n\r\t");
-		}
-		else
-		{
-			token2 = NULL;
-			token3 = NULL;
-		}
-		printf("token = %s, token2 = %s, token3 = %s\n", token, token2, token3);
-/*		flag = function_caller(opcode, line_number); 
-		if (flag == -1)
-		{
-			fprintf("L%d: unknown instruction %s\n", line_number, opcode);
-			exit (EXIT_FAILURE);
-		} */
+			function_caller(token, &stack, line_number);
 		line_size = getline(&newline, &line_buf_size, fp);
 	}
+
 	fclose(fp);
 	return (0);
 }
