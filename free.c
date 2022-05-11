@@ -6,7 +6,7 @@
  * Return: is void
  */
 
-void _free(stack_t *stack)
+void freestack(stack_t *stack)
 {
 	stack_t *temp;
 
