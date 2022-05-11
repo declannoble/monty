@@ -28,11 +28,8 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	on_exit(filecloser, fp);
 
 	line_size = getline(&newline, &line_buf_size, fp);
-	on_exit(freebuffer, &newline);
-
 	while (line_size > 0)
 	{
 		line_number++;
@@ -41,6 +38,8 @@ int main(int argc, char **argv)
 			function_caller(token, &stack, line_number);
 		line_size = getline(&newline, &line_buf_size, fp);
 	}
+	fclose(fp);
+	free(newline);
 	freestack(stack);
 	return (0);
 }
