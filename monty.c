@@ -35,7 +35,10 @@ int main(int argc, char **argv)
 		line_number++;
 		token = strtok(newline, " \n\r\t");
 		if (token != NULL)
-			function_caller(token, &stack, line_number);
+		{
+			if (token[0] != '#')
+				function_caller(token, &stack, line_number);
+		}
 		line_size = getline(&newline, &line_buf_size, fp);
 	}
 	fclose(fp);
