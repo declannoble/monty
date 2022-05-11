@@ -44,6 +44,8 @@ int main(int argc, char **argv)
 		stack = stack->next;
 		free(temp);
 	}
+	free(newline);
+	free(stack);
 	fclose(fp);
 	return (0);
 }
