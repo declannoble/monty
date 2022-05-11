@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _free - frees a stack
+ * freestack - frees a stack
  * @stack: the stack to be freed
  * Return: is void
  */
