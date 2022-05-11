@@ -10,6 +10,6 @@ void _rotr(stack_t **stack, unsigned int line_count)
 {
 	(void) line_count;
 
-	if (*stack != NULL)
+	if (*stack)
 		*stack = (*stack)->prev;
 }
