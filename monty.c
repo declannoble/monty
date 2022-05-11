@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	ssize_t line_size;
 	char *newline = NULL, *token = NULL;
 	FILE *fp = NULL;
-	stack_t *stack = NULL;
+	stack_t *stack = NULL, *temp = NULL;
 
 	if (argc != 2)
 	{
@@ -38,7 +38,12 @@ int main(int argc, char **argv)
 			function_caller(token, &stack, line_number);
 		line_size = getline(&newline, &line_buf_size, fp);
 	}
-
+	while (stack != NULL)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
 	fclose(fp);
 	return (0);
 }
