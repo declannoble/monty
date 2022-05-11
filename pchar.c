@@ -15,11 +15,12 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((s->n >= 65 && s->n <= 90) || (s->n >= 97 && s->n <= 122))
+	if (s->n >= 32 && s->n <= 126)
 		printf("%c\n", (*stack)->n);
 	else
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		freestack(*stack);
 		exit(EXIT_FAILURE);
 	}
 }
