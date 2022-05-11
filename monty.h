@@ -39,6 +39,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void function_caller(char *op_code, stack_t **stack, unsigned int line_number);
+void _free(stack_t *stack);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
