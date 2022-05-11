@@ -9,23 +9,17 @@
 
 void _swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current = *stack, *swap, *toSwap;
+	stack_t *current = *stack;
+	int temp;
 
 	(void)line_number;
-	if (stack == NULL || *stack == NULL || current->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: usage: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (current->next != NULL)
-	{
-		swap = current;
-		toSwap = current->next;
-		current = toSwap->next;
-		toSwap->prev = NULL;
-		toSwap->next = swap;
-		swap->prev = toSwap;
-		swap->next = current;
-		*stack = toSwap;
-	}
+	current = (*stack)->next;
+	temp = (*stack)->n;
+	(*stack)->n = current->n;
+	current->n = temp;
 }
