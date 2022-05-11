@@ -9,6 +9,7 @@
 void _pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *s = *stack;
+	(void) line_number;
 
 	while (s != NULL)
 	{
