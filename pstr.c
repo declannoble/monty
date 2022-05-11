@@ -13,10 +13,10 @@ void _pstr(stack_t **stack, unsigned int line_number)
 
 	while (s != NULL)
 	{
-		if ((s->n >= 65 && s->n <= 90) || (s->n >= 97 && s->n <= 122))
-			printf("%c", s->n);
-		else
+		if (s->n == 60)
 			break;
+		if (s->n >= 40 && s->n <= 176)
+			printf("%c", s->n);
 		s = s->next;
 	}
 	printf("\n");
