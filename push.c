@@ -38,7 +38,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		if (flag == 0)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-        	        exit(EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
