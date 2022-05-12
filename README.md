@@ -7,7 +7,8 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 ## Monty byte code files
 Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:
 
-```push 0$
+```
+push 0$
 push 1$
 push 2$
   push 3$
@@ -15,4 +16,40 @@ push 2$
 push 4$
     push 5    $
       push    6        $
-pall$```
+pall$`
+
+Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
+
+```
+push 0 Push 0 onto the stack$
+push 1 Push 1 onto the stack$
+$
+push 2$
+  push 3$
+                   pall    $
+$
+$
+                           $
+push 4$
+$
+    push 5    $
+      push    6        $
+$
+pall This is the end of our program. Monty is awesome!$`
+
+## The monty program
+### Compilation & Output
+
+The program will be compiled using these flags:
+`gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o monty`
+
+-Any output must be printed to `stdout`
+-Any error message must be printed on `stderr`
+
+##Usage:
+
+`./monty "file"`
+Where the file is the pathway containing Monty byte code. If for whatever reason, it's not possible to open the file an error message will display:
+`Error: Can't open file <file>`
+If the file contains an invalid instruction, this error message will be printed to stderr:
+`L<line_number>: unknown instruction <opcode>`
