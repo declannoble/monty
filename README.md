@@ -21,7 +21,7 @@ pall$
 
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
 
-
+```
 push 0 Push 0 onto the stack$
 push 1 Push 1 onto the stack$
 $
@@ -37,7 +37,7 @@ $
       push    6        $
 $
 pall This is the end of our program. Monty is awesome!$
-
+```
 
 
 ## The monty program
@@ -49,10 +49,15 @@ The program will be compiled using these flags:
 -Any output must be printed to `stdout`
 -Any error message must be printed on `stderr`
 
-##Usage:
+## Usage:
 
 `./monty "file"`
+
 Where the file is the pathway containing Monty byte code. If for whatever reason, it's not possible to open the file an error message will display:
+
 `Error: Can't open file <file>`
+
 If the file contains an invalid instruction, this error message will be printed to stderr:
+
 `L<line_number>: unknown instruction <opcode>`
+
