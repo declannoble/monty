@@ -15,7 +15,6 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	{
 		if (s->n <= 0 || s->n > 127)
 			break;
-		else
 			printf("%c", s->n);
 		s = s->next;
 	}
