@@ -16,7 +16,7 @@ push 2$
 push 4$
     push 5    $
       push    6        $
-pall$`
+pall$```
 
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
 
