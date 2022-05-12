@@ -15,7 +15,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (s->n >= 32 && s->n <= 126)
+	if (s->n >= 0 && s->n <= 127)
 		printf("%c\n", (*stack)->n);
 	else
 	{
