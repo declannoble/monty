@@ -8,14 +8,12 @@
 
 void _pchar(stack_t **stack, unsigned int line_number)
 {
-	stack_t *s = *stack;
-
-	if (s == NULL || stack == NULL)
+	if ((*stack) == NULL || stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (s->n >= 0 && s->n <= 127)
+	if ((*stack)->n >= 33 && (*stack)->n <= 127)
 		printf("%c\n", (*stack)->n);
 	else
 	{
