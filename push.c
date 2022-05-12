@@ -11,7 +11,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
 	char *value;
-	int number, i = 0, flag = 0, sign;
+	int number, i = 0, flag = 0;
 
 	if (stack == NULL)
 	{
@@ -37,19 +37,12 @@ void _push(stack_t **stack, unsigned int line_number)
 		flag = isdigit(value[i]);
 		if (flag == 0)
 		{
-			if (value[0] == '-' && value[1] != '0')
-				sign = 1;
-			else if (value[0] == '-' && value[1] == '0')
-				sign = 1;
-			else
-			{
-				fprintf(stderr, "L%d: usage: push integer\n", line_number);
-				exit(EXIT_FAILURE);
-			}
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
-	number = atoi(value) * sign;
+	number = atoi(value);
 	newnode->n = number;
 	newnode->prev = NULL;
 	newnode->next = *stack;
